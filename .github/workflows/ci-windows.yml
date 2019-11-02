@@ -40,5 +40,10 @@ jobs:
     - name: Build
       shell: bash
       run: mvn verify
+    - name: Upload jar
+      uses: actions/upload-artifact@master
+      with:
+        name: produced-jar
+        path: target/
 # TODO give a try to the upload-artifact actions to store bundle and Studio
 # see https://github.com/actions/upload-artifact
