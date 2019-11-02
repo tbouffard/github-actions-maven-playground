@@ -25,9 +25,11 @@ jobs:
       shell: bash
       run: |
         cd $HOME
-        ls -lh
+        echo "****HOME"
+        ls -lah
+        echo "****M2 folder"
         mkdir -p .m2/
-        ls -lh .m2/
+        ls -lah .m2/
 #        cp $/.github/workflows/maven/settings.xml .m2/
 #      run: mvn install
 # TODO give a try to the upload-artifact actions to store bundle and Studio
