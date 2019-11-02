@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build
+    - name: Setup
       shell: bash
       run: |
         echo "****TOOLING"
@@ -32,7 +32,10 @@ jobs:
         echo "****M2 folder"
         mkdir -p .m2/
         ls -lah .m2/
+        echo "****M2 folder"
 #        cp $/.github/workflows/maven/settings.xml .m2/
-#      run: mvn install
+    - name: Build
+      shell: bash
+      run: mvn verify
 # TODO give a try to the upload-artifact actions to store bundle and Studio
 # see https://github.com/actions/upload-artifact
