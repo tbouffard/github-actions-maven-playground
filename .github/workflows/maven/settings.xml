@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT NOTE This file is intended to be used in slaves and on developer boxes Default configuration should be set for
+    the slaves, other configurations are mainly for developers -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <mirrors>
+        <!-- seems required in github action for Windows -->
+        <mirror>
+            <id>mirror-unknown-bonita-web-declared-repositories</id>
+            <name>Maven Central to replace wrongly declared repositories in bonita-web</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <!-- IMPORTANT: do not put spaces after comma otherwise repository is not considered -->
+            <mirrorOf>gwt-maven-plugins-nexus,oauth</mirrorOf>
+        </mirror>
+    </mirrors>
+
+</settings>
