@@ -34,9 +34,9 @@ jobs:
         echo "****M2 folder"
         mkdir -p .m2/
         ls -lah .m2/
-        echo "****M2 folder - settings setup"
-        cp $GITHUB_WORKSPACE/.github/workflows/maven/settings.xml .m2/
-        ls -lh .m2/
+#        echo "****M2 folder - settings setup"
+#        cp $GITHUB_WORKSPACE/.github/workflows/maven/settings.xml .m2/
+#        ls -lh .m2/
     - name: Build
       shell: bash
       run: mvn verify
