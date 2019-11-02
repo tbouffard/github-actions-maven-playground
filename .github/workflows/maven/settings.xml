@@ -5,14 +5,20 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
     <mirrors>
-        <!-- seems required in github action for Windows -->
         <mirror>
-            <id>mirror-unknown-bonita-web-declared-repositories</id>
-            <name>Maven Central to replace wrongly declared repositories in bonita-web</name>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <id>mirror-central-to-unknown-host</id>
+            <name>Maven Central replacement with an not existing host</name>
+            <url>https://do_not_exist/maven2</url>
             <!-- IMPORTANT: do not put spaces after comma otherwise repository is not considered -->
-            <mirrorOf>gwt-maven-plugins-nexus,oauth</mirrorOf>
+            <mirrorOf>central</mirrorOf>
         </mirror>
+<!--        <mirror>-->
+<!--            <id>mirror-unknown-bonita-web-declared-repositories</id>-->
+<!--            <name>Maven Central to replace wrongly declared repositories in bonita-web</name>-->
+<!--            <url>https://repo.maven.apache.org/maven2</url>-->
+<!--            &lt;!&ndash; IMPORTANT: do not put spaces after comma otherwise repository is not considered &ndash;&gt;-->
+<!--            <mirrorOf>gwt-maven-plugins-nexus,oauth</mirrorOf>-->
+<!--        </mirror>-->
     </mirrors>
 
 </settings>
