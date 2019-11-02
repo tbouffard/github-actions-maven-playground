@@ -40,10 +40,16 @@ jobs:
     - name: Build
       shell: bash
       run: mvn verify
+    - name: Prepare artifacts
+      shell: bash
+      run: |
+        mkdir -p target/artifacts
+        cp target/*.jar target/artifacts/
     - name: Upload jar
       uses: actions/upload-artifact@master
       with:
-        name: produced-jar
-        path: target/
+        # see https://github.community/t5/GitHub-Actions/Use-variables-in-upload-artifact/m-p/34778#M2009
+        name: project-jar-${{github.sha}}
+        path: target/artifacts/
 # TODO give a try to the upload-artifact actions to store bundle and Studio
 # see https://github.com/actions/upload-artifact
