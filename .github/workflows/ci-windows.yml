@@ -24,6 +24,8 @@ jobs:
     - name: Build
       shell: bash
       run: |
+        echo "****TOOLING"
+        mvn --version
         cd $HOME
         echo "****HOME"
         ls -lah
