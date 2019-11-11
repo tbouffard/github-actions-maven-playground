@@ -34,8 +34,8 @@ jobs:
         mkdir -p .m2/
         ls -lah .m2/
         echo "****Run on Windows"
-        echo "$(wmic os get Caption,Version,osarchitecture)"
         echo "From uname: $(uname -a)
+        echo "$(wmic os get Caption,Version,osarchitecture)"
     - name: Build
       shell: bash
       run: mvn verify

@@ -1,0 +1,34 @@
+name: Windows Build
+
+on:
+  # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build:
+    runs-on: mac-latest
+    steps:
+      - name: Setup
+        shell: bash
+        run: |
+          pwd
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "****TOOLING"
+          mvn --version
+          cd $HOME
+          echo "****HOME"
+          ls -lah
+          echo "****M2 folder"
+          mkdir -p .m2/
+          ls -lah .m2/
+          echo "****Run on Mac"
+          echo "From uname: $(uname -a)
+          echo "sw_vers:"
+          echo "$(sw_vers -productVersion)"
