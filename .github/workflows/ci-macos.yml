@@ -1,4 +1,4 @@
-name: Windows Build
+name: Mac Build
 
 on:
   # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
