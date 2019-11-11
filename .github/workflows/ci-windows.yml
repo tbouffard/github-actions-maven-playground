@@ -29,7 +29,10 @@ jobs:
         mvn --version
         echo "****Run on Windows"
         echo "From uname: $(uname -a)"
+        echo "From wmic:"
         echo "$(wmic os get Caption,Version,osarchitecture)"
+        echo "From wmic (alternative):"
+        echo $(wmic os get Caption,Version,osarchitecture)
 #    - name: Build
 #      shell: bash
 #      run: mvn verify
