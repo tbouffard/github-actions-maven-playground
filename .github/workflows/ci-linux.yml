@@ -1,0 +1,28 @@
+name: Linux Build
+
+on:
+  # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup
+        shell: bash
+        run: |
+          pwd
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "****TOOLING"
+          mvn --version
+          echo "****Run on Mac"
+          echo "From uname: $(uname -a)"
+          echo "from /etc/lsb-release"
+          echo "$(cat /etc/lsb-release)"
