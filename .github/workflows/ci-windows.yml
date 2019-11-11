@@ -23,16 +23,12 @@ jobs:
     - name: Setup
       shell: bash
       run: |
-        pwd
-        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-        echo "****TOOLING"
-        mvn --version
-        echo "****Run on Windows"
-        echo "From uname: $(uname -a)"
-        echo "From wmic:"
-        echo "$(wmic os get Caption,Version,osarchitecture)"
-        echo "From wmic (alternative):"
-        echo $(wmic os get Caption,Version,osarchitecture)
+         echo "OS information"
+         echo "  > Run on Windows"
+         echo "  > Details: $(wmic os get Caption,Version,osarchitecture | grep Microsoft)"
+         echo "  > Generic information: $(uname -a)"
+
+
 #    - name: Build
 #      shell: bash
 #      run: mvn verify

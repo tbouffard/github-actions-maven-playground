@@ -18,11 +18,7 @@ jobs:
       - name: Setup
         shell: bash
         run: |
-          pwd
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "****TOOLING"
-          mvn --version
-          echo "****Run on Mac"
-          echo "From uname: $(uname -a)"
-          echo "from /etc/lsb-release"
+          echo "OS information"
+          echo "  > Run on Linux"
           echo "$(cat /etc/lsb-release)"
+          echo "  > Generic information: $(uname -a)"
