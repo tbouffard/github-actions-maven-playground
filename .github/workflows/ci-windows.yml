@@ -1,7 +1,6 @@
 name: Windows Build
 
 on:
-  # TODO remove duplication, we should be able to do on: [push, pull_request]
   # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
   push:
     branches:
@@ -14,7 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2016
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.8
@@ -34,12 +33,10 @@ jobs:
         echo "****M2 folder"
         mkdir -p .m2/
         ls -lah .m2/
-#        echo "****M2 folder - settings setup"
-#        cp $GITHUB_WORKSPACE/.github/workflows/maven/settings.xml .m2/
-#        ls -lh .m2/
     - name: Build
       shell: bash
       run: mvn verify
+# see https://github.com/actions/upload-artifact
     - name: Prepare artifacts
       shell: bash
       run: |
@@ -51,5 +48,3 @@ jobs:
         # see https://github.community/t5/GitHub-Actions/Use-variables-in-upload-artifact/m-p/34778#M2009
         name: project-jar-${{github.sha}}
         path: target/artifacts/
-# TODO give a try to the upload-artifact actions to store bundle and Studio
-# see https://github.com/actions/upload-artifact
