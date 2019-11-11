@@ -27,12 +27,6 @@ jobs:
         echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
         echo "****TOOLING"
         mvn --version
-#        cd $HOME
-#        echo "****HOME"
-#        ls -lah
-#        echo "****M2 folder"
-#        mkdir -p .m2/
-#        ls -lah .m2/
         echo "****Run on Windows"
         echo "From uname: $(uname -a)"
         echo "$(wmic os get Caption,Version,osarchitecture)"
