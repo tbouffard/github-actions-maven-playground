@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Script configuration
+# You can set the following environment variables
+BONITA_BUILD_NO_CLEAN=${BONITA_BUILD_NO_CLEAN:-false}
+BONITA_BUILD_QUIET=${BONITA_BUILD_QUIET:-false}
+BONITA_BUILD_STUDIO_ONLY=${BONITA_BUILD_STUDIO_ONLY:-false}
+BONITA_BUILD_STUDIO_SKIP=${BONITA_BUILD_STUDIO_SKIP:-false}
+
+# Bonita version
+BONITA_BPM_VERSION=7.9.4
+
+
 ########################################################################################################################
 # PARAMETERS PARSING AND VALIDATIONS
 ########################################################################################################################
@@ -128,3 +139,11 @@ checkJavaVersion() {
     fi
     echo "      Java version is compatible with Bonita"
 }
+
+
+########################################################################################################################
+# MAIN
+########################################################################################################################
+detectOS
+logBuildInfo
+checkPrerequisites
