@@ -38,7 +38,7 @@ logBuildInfo() {
         echo "$(sw_vers)" | xargs -L 1 -I % echo "      %"
     else
         echo "  > Run on Windows"
-        echo "$(wmic os get Caption,OSArchitecture,Version //value)" | xargs -L 1 -I % echo "      %"
+        echo "$(wmic os get Caption,OSArchitecture,Version //value)" | xargs -L 1 --no-run-if-empty -I % echo "      %"
     fi
     echo "  > Generic information: $(uname -a)"
 
