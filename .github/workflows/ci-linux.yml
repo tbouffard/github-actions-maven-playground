@@ -17,8 +17,4 @@ jobs:
     steps:
       - name: Setup
         shell: bash
-        run: |
-          echo "OS information"
-          echo "  > Run on Linux"
-          echo "$(cat /etc/lsb-release)"
-          echo "  > Generic information: $(uname -a)"
+        run: ./checks.bash

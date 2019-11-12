@@ -22,11 +22,7 @@ jobs:
 #        java-version: 1.8
     - name: Setup
       shell: bash
-      run: |
-         echo "OS information"
-         echo "  > Run on Windows"
-         echo "  > Details: $(wmic os get Caption,Version,osarchitecture | grep Microsoft)"
-         echo "  > Generic information: $(uname -a)"
+      run: ./checks.bash
 
 
 #    - name: Build
