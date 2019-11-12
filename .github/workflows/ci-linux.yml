@@ -19,3 +19,5 @@ jobs:
       - name: Setup
         shell: bash
         run: ./checks.bash
+        env:
+          BONITA_BUILD_STUDIO_SKIP: true
