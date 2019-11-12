@@ -32,13 +32,13 @@ logBuildInfo() {
     echo "OS information"
     if [[ "${OS_IS_LINUX}" == "true" ]]; then
         echo "  > Run on Linux"
-        echo "$(cat /etc/lsb-release)"  | xargs -L 1 -I % echo "      %"
+        echo "$(cat /etc/lsb-release)" | xargs -L 1 -I % echo "      %"
     elif [[ "${OS_IS_MAC}" == "true" ]]; then
         echo "  > Run on MacOS"
-        echo "$(sw_vers)"  | xargs -L 1 -I % echo "      %"
+        echo "$(sw_vers)" | xargs -L 1 -I % echo "      %"
     elif [[ "${OS_IS_WINDOWS}" == "true" ]]; then
         echo "  > Run on Windows"
-        echo "      $(wmic os get Caption,Version,osarchitecture | grep Microsoft)"
+        echo "$(wmic os get Caption,OSArchitecture,Version //value)" | xargs -L 1 -I % echo "      %"
     else
         echo "/!\ unable to find the OS type"
         exit 1
