@@ -36,12 +36,9 @@ logBuildInfo() {
     elif [[ "${OS_IS_MAC}" == "true" ]]; then
         echo "  > Run on MacOS"
         echo "$(sw_vers)" | xargs -L 1 -I % echo "      %"
-    elif [[ "${OS_IS_WINDOWS}" == "true" ]]; then
+    else
         echo "  > Run on Windows"
         echo "$(wmic os get Caption,OSArchitecture,Version //value)" | xargs -L 1 -I % echo "      %"
-    else
-        echo "/!\ unable to find the OS type"
-        exit 1
     fi
     echo "  > Generic information: $(uname -a)"
 
