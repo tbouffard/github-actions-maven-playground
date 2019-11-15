@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT NOTE This file is intended to be used in slaves and on developer boxes Default configuration should be set for
+    the slaves, other configurations are mainly for developers -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <mirrors>
+        <mirror>
+            <id>mirror-central-to-unknown-host</id>
+            <name>Maven Central replacement with an not existing host</name>
+            <url>https://do_not_exist/maven2</url>
+            <!-- IMPORTANT: do not put spaces after comma otherwise repository is not considered -->
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+<!--        <mirror>-->
+<!--            <id>mirror-unknown-bonita-web-declared-repositories</id>-->
+<!--            <name>Maven Central to replace wrongly declared repositories in bonita-web</name>-->
+<!--            <url>https://repo.maven.apache.org/maven2</url>-->
+<!--            &lt;!&ndash; IMPORTANT: do not put spaces after comma otherwise repository is not considered &ndash;&gt;-->
+<!--            <mirrorOf>gwt-maven-plugins-nexus,oauth</mirrorOf>-->
+<!--        </mirror>-->
+    </mirrors>
+
+</settings>

@@ -1,0 +1,21 @@
+name: Mac Build
+
+on:
+  # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup
+        shell: bash
+        run: ./checks.bash
