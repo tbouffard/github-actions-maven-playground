@@ -1,4 +1,4 @@
-name: Windows Build
+name: Matrix Build
 
 on:
   # see https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on
@@ -13,7 +13,14 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os.name }}
+    strategy:
+      matrix:
+        # syntax inspired from https://github.community/t5/GitHub-Actions/Using-a-matrix-defined-input-for-a-custom-action/m-p/32032/highlight/true#M988
+        os:
+          - {name: macos-latest, short: "macos" }
+          - {name: ubuntu-latest, short: "ubuntu" }
+          - {name: windows-latest, short: "windows" }
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.8
@@ -32,5 +39,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         # see https://github.community/t5/GitHub-Actions/Use-variables-in-upload-artifact/m-p/34778#M2009
-        name: project-jar-${{github.sha}}
+        name: project-jar-${{github.sha}}-build-on-${{matrix.os.short}}
         path: target/artifacts/
