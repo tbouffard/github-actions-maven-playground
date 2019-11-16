@@ -39,5 +39,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         # see https://github.community/t5/GitHub-Actions/Use-variables-in-upload-artifact/m-p/34778#M2009
-        name: project-jar-${{github.sha}}-build-on-${{matrix.os.short}}
+        name: project-jar-${{matrix.os.short}}-${{github.sha}}
         path: target/artifacts/
